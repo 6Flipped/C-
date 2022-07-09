@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="../static/music_css/user_pl.css">
+    <title>我的评论</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>音乐名称</th>
+        <th>评论内容</th>
+        <th>评论时间</th>
+        <th>打分</th>
+    </tr>
+    {% for item in data %}
+    <tr>
+        <td>{{ item.mname }}</td>
+        <td>{{item.comments}}</td>
+        <td>{{item.time}}</td>
+        <td>{{item.cscore}}</td>
+    <tr>
+    {% endfor %}
+</table>
+</body>
+</html>

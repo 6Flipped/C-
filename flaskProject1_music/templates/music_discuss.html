@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论</title>
+    <link rel="stylesheet"  href="{{ url_for('static',filename='music_css/music_shouye.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='music_css/music_jianjie.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='music_css/examples.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='music_css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{url_for('static',filename='jQuery-pf-cj/css/examples.css')}}">
+    <script src="{{url_for('static',filename='jQuery-pf-cj/js/vendor/html5shiv.js')}}"></script>
+    <style>
+        form.f1{
+            width: 600px;
+            height: 500px;
+            float: left;
+        }
+        form textarea{
+            width: 600px;
+            height: 500px;
+            border: 2px solid #305A56;
+        }
+        #dd{
+            width: 600px;
+            height: 250px;
+            display: inline-block;
+            margin: auto;
+        }
+        div.dd1{
+            width: 1000px;
+            height: 50px;
+            margin: auto ;
+        }
+        div.p6{
+            width: 1000px;
+            height: 30px;
+            float: left;
+            font-size: 20px;
+            color: #CB4042;
+        }
+        div.dd2{
+            width: 1000px;
+            height: 1000px;
+            margin: auto;
+        }
+        input.submit{
+            width: 70px;
+            height: 30px;
+            font-size: 17px;
+            background-color: #EEA9A9;
+            float: left;
+        }
+        .text{
+            font-family: 仿宋;
+            font-size: 20px;
+            border-radius: 5%;
+            border: 1px solid #CB4042;
+        }
+    </style>
+</head>
+<body>
+    <div class="d3">
+        {% if session.get('username') != None%}
+            <div class="header-top-area">
+                <a href="loginout/" style="color:white" class="a1">
+                    <span style="padding-left:7px">退出登录</span>
+                </a>
+                <span style="padding-left:7px" class="a6">
+                    <a href="/music_user.html" class="a7" title="显示个人信息">
+                        <i class="fa fa-user-circle-o" aria-hidden="true" title="显示个人信息"></i>{{session.get('username')}}
+                    </a>
+                </span>
+            </div>
+        {% else %}
+            <div class="header-top-area">
+                <a href="{{url_for('enroll')}}" style="color:white" class="a1">
+                <i  aria-hidden="true"></i>
+                    <span style="padding-left:7px">注册</span>
+                </a>
+                <a href="{{url_for('login')}}" style="color:white" class="a1">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    <span style="padding-left:7px">登录</span>
+                </a>
+            </div>
+        {% endif %}
+     </div>
+    <div class="wrapper">
+        <h2>
+            <span>{{music.mname}}</span>
+        </h2>
+        <div class="wrapper">
+            <div class="d7">
+                <div class="d8">
+                    <div id="photo">
+                        <img src="{{url_for('static',filename=music.poster|e)}}" width="180px" height="180px">
+                    </div>
+                    <div id="info">
+                        <span>
+                            <span class="p1">歌名：{{music.mname}}</span>
+                        </span><br>
+                        <span>
+                            <span class="p1">歌手：{{music.singer}}</span>
+                        </span><br>
+                        <span>
+                            <span class="p1">类型：{{ music.type }}</span>
+                        </span><br>
+                        <span>
+                            <span class="p1">语言：{{ music.language }}</span>
+                        </span><br>
+                        <span>
+                            <span class="p1">发行时间：{{ music.createtime }}</span>
+                        </span><br>
+                    </div>
+                </div>
+                <div class="d9">
+                    <div class="d10">
+                        <div class="d11">  音乐评分:</div>
+                        <div class="p7">
+                            {%  if mscore == None  %}
+                                <span class="p8">暂无评分</span>
+                            {% else  %}
+                                <span class="p8">{{ mscore }}</span>
+                            {% endif  %}
+                            {% if charmscore != None and mscore != None  %}
+                                <span class="p8"><img src="{{url_for('static',filename='评价5星/star'+charmscore+'.png')}}" style="width:180px"></span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div><br>
+                </div><br>
+                <div class="d13">
+                    <span id="p2">
+                        <form action="" method="post">
+                            <table align="center" cellpadding="0" cellspacing="0" class="table">
+                                <form action="" class="f1" method="post">
+                                <tr>
+                                    <td class="pingjia">
+                                        给个评价吧：
+                                    </td>
+                                    <td class="p3">
+                                        <select  name="t_score" id="score" name="rating">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                       </selecttype>
+                                    </td>
+                                </tr>
+                            </table>
+                    </span>
+                </div><br>
+            </div>
+        </div>
+    </div><br>
+        <div class="dd1">
+            <div class="p6">写乐评：</div>
+        </div>
+        <div class="dd2">
+                <textarea cols="100" name=comment rows="5" class="text" placeholder="请输入评论"></textarea><br>
+            <input type="submit" value="提交" class="submit">
+            </form>
+        </div>
+    <!--版权信息-->
+    <div class="footer">
+        <div class="footer-box">
+            <div class="footer-contain">
+                <p>
+                    <span><a href="#">关于我们：</a></span>
+                    <span><a href="#">@安彤 |</a></span>
+                    <span><a href="#">@蒋幸 |</a></span>
+                    <span><a href="#">@曾辉 |</a></span>
+                    <span><a href="#">@李万洲 |</a></span>
+                    <span><a href="#">@曹川 </a></span>
+                </p>
+                <p>
+                    <a href="#">湖北省武汉市洪山区武科大黄家湖校区理学院，联系方式：13888888888</a>
+                </p>
+            </div>
+            <div class="bottom-contain">
+                <p>
+                    Copyright © 2022 武科大理学院信息与计算科学专业 版权所有
+                </p>
+            </div>
+        </div>
+    </div>
+<script src="{{url_for('static',filename='/jQuery-pf-cj/js/vendor/jquery-1.11.2.min.js')}}"></script>
+<script src="{{url_for('static',filename='/jQuery-pf-cj/js/jquery.barrating.js')}}"></script>
+<script src="{{url_for('static',filename='/jQuery-pf-cj/js/examples.js')}}"></script>
+</body>
+</html>

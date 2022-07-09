@@ -1,0 +1,150 @@
+      *{
+            margin: 0;
+            padding: 0;
+        }
+        div.d3{
+            height: 28px;
+            width: 100%;
+            background-color: #CB4042;
+        }
+        div.d3 a.aa{
+            float: left;
+            line-height: 28px;
+            text-decoration: none;
+            color: white;
+            margin-left: 10px;
+        }
+        div.header-top-area a.a1{
+            float: right;
+            margin: 0 12px 0 0;
+            line-height: 28px;
+            text-decoration: none;
+            color: white;
+        }
+        div.header-top-area a.a1:hover{
+            color: #A5DEE4;
+        }
+        div.header-top-area span.a6{
+            float: right;
+            margin: 0 12px 0 0;
+            line-height: 28px;
+            text-decoration: none;
+            color: white;
+        }
+        #db-nov-music{
+            height: 65px;
+            margin: auto;
+            width: 100%;
+            background-color: #f0f3f5;
+            overflow: hidden;   /*多余的部分隐藏，页面不随窗口缩小*/
+            border-bottom: 1px solid gray;
+            padding: 10px 20px 10px 20px;
+            line-height: 65px;
+        }
+        div.wrapper{
+            width: 1000px;
+            margin: auto;
+        }
+        div.d1{
+            width: 145px;
+            height: 56px;
+            display: inline-block;
+        }
+        div.d2{
+            width: 600px;
+            height: 56px;
+            float: right;
+            display: inline-block;
+        }
+        div.d4{
+            width: 150px;
+            height: 270px;
+            text-align: center;
+            margin: 15px 10px;
+            overflow: hidden;
+            display: inline-block;
+        }
+        div.d6{
+            width: 1000px;
+            /*height: 837px;*/
+            border-top: 1px solid darkgrey;
+            margin: 10px 0 0 0;
+            text-align: center;
+        }
+        #a2{
+            width: 160px;
+            height: 60px;
+            float: left;
+            margin: 0 13px 0 0;
+        }
+        #a2>img{
+            width: 160px;
+            height: 60px;
+            overflow: hidden;
+        }
+        div div form input{
+            width: 400px;
+            height: 40px;
+            border: 1px solid gray;
+            font-size: 15px;
+            color: black;
+            margin: 10px 0 10px 0;
+            border-radius: 5px;
+        }
+        input.box1{
+            width: 45px;
+            height: 40px;
+            background-color: #CB4042;
+            border-radius: 5px;
+            color: white;
+        }
+        div a.a4{
+            text-decoration: none;
+            color: black;
+        }
+        .h1{
+            margin: 10px 10px 15px 15px;
+            display: inline-block;
+        }
+        .a3{
+            color: black;
+            text-decoration: none;
+        }
+        a.a3:hover{
+            background-color: #CB4042;
+            color: white;
+        }
+        div.d5{
+            height: 40px;
+        }
+        /*footer start*/
+        .footer{
+            width: 100%;
+            background-color: #333333;
+        }
+        .footer .footer-box{
+            width: 1200px;
+            margin: auto;
+            background-color: #CB4042;
+            text-align: center;
+            color: white;
+        }
+        .footer .footer-box .footer-contain{
+            line-height: 35px;
+            padding: 15px 0;
+            /*background: url("../img/音乐论坛.png") no-repeat;*/
+        }
+        .footer .footer-box .footer-contain a{
+            text-decoration: none;
+            color: antiquewhite;
+        }
+        .footer .bottom-contain{
+            text-align: center;
+            line-height: 50px;
+            color: burlywood;
+        }
+        .footer .bottom-contain p{
+            width: 1200px;
+            margin: auto;
+        }
+        /*footer end*/

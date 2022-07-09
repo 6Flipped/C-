@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员系统</title>
+    <link href="../static/img/music.ico" rel="shortcut icon">
+    <style>
+        .op1{
+            height: 2000px;
+            width:200px;
+            background: #CB4042;
+            font-size: large;
+            float:left;
+            border-bottom-width: 2px;
+            border-color: black;
+            border-style: solid;
+        }
+        .op2{
+            font-size: xxx-large;
+        }
+        .op3{
+            height:64px;
+            text-align: center;
+            font-size: 48px;
+            background-color: #CB4042;
+            font-family: 方正姚体;
+            border-bottom-width: 2px;
+            border-color: black;
+            border-style: solid;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .d_in{
+            padding-bottom: 20px;
+            padding-top: 20px;
+            font-size: 24px;
+            font-family: 隶书;
+        }
+        .op4{
+            border-style: solid;
+            border-color: #CB4042;
+            padding-left: 240px;
+            padding-top: 20px;
+            height: 640px;
+        }
+        input.detail{
+            height: 40px;
+            width: 300px;
+        }
+        input.s1{
+            height: 40px;
+            width: 60px;
+        }
+    </style>
+</head>
+<header>
+    <div class="op3"><a href="/op_Homepage.html">管理员主页</a></div>
+</header>
+<body onload="auto_fill()" class="b1">
+<div>
+    <div class="op1">
+        <div class="d_in"><a href="/op_info.html">个人简介</a></div>
+        <div class="d_in"><a href="/op_Ban.html">用户禁言</a></div>
+        <div class="d_in"><a href="/op_Examine.html">查看音乐信息</a></div>
+        <div class="d_in"><a href="/op_Edit.html">编辑音乐</a></div>
+        <div class="d_in"><a href="/op_Delete.html">删除音乐</a></div>
+        <div class="d_in"><a href="/op_AddMusic.html">添加音乐</a></div>
+    </div>
+    {% for music in music %}
+    <div class="wrapper">
+        <h2>
+            <span>音乐名称</span>
+        </h2>
+        <div class="wrapper">
+            <div class="d7">
+                <div class="d8">
+                    <div id="photo">
+                        <img src="{{url_for('static',filename=music.poster|e)}}" width="180px" height="180px">
+                        <form action="/op_Edit.html/{{ music.mid }}/1" method="post">
+                            <input name=poster type="text" placeholder="请上传修改后的音乐海报（该功能暂未开放！)" class="detail">
+                            <input type="submit" class="s1">
+                        </form>
+                    </div>
+                    <div id="info">
+                        <span>
+                            <span class="p1">歌名：{{music.mname}}</span>
+                            <form action="/op_Edit.html/{{ music.mid }}/2" method="post">
+                                <input name=mname type="text" placeholder="请输入修改后的歌名" class="detail">
+                                <input type="submit" class="s1">
+                            </form>
+                        </span><br>
+                        <span>
+                            <span class="p1">歌手：{{music.singer}}</span>
+                            <form action="/op_Edit.html/{{ music.mid }}/3" method="post">
+                                <input name=singer type="text" placeholder="请输入修改后的歌手名称" class="detail">
+                                <input type="submit" class="s1">
+                            </form>
+                        </span><br>
+                        <span>
+                            <span class="p1">类型：{{music.type}}</span>
+                            <form action="/op_Edit.html/{{ music.mid }}/4" method="post">
+                                <input name=type type="text" placeholder="请输入修改后的音乐类型" class="detail">
+                                <input type="submit" class="s1">
+                            </form>
+                        </span><br>
+                        <span>
+                            <span class="p1">语言：{{music.language}}</span>
+                            <form action="/op_Edit.html/{{ music.mid }}/5" method="post">
+                                <input name=language type="text" placeholder="请输入修改后的音乐语言" class="detail">
+                                <input type="submit" class="s1">
+                            </form>
+                        </span><br>
+                        <span>
+                            <span class="p1">发行时间：{{music.createtime}}</span>
+                            <form action="/op_Edit.html/{{ music.mid }}/6" method="post">
+                                <input name=createtime type="text" placeholder="请输入修改后的发行时间" class="detail">
+                                <input type="submit" class="s1">
+                            </form>
+                        </span><br>
+                    </div>
+                </div>
+                <div class="d9">
+                    <div class="d10">
+                        <div class="d11">  音乐评分:</div>
+                        <div class="p7">
+                            <span class="p8">8.0</span>
+                            <span class="p8"><img src="{{url_for('static',filename='评价5星/star4.png')}}" style="width:180px"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    {% endfor %}
+   <div class="d15">
+        <div class="d26">
+            歌词···
+        </div>
+        {% for music in music %}
+        <div class="d16">
+            <p style="white-space: pre-line">
+                {{music.word}}
+            </p><br>
+        </div><br>
+        {% endfor %}
+
+<!--音乐评论-->
+
+        <div class="d17">
+        <div class="d25">音乐评论···</div>
+        <div class="d18">
+           {% for comment in comments %}
+            <div class="d19">
+                <a href="" class="a5">{{ comment.username }}</a>
+                <img src="{{ url_for('static',filename='/评价5星/star3.png') }}" class="m2">
+            </div>
+            <p class="p5">
+                {{ comment.comments|e }}
+            <button><a href="/op_AdjustMusic.html/{{ comment.uid }}/{{ comment.mid }}">删除评论</a></button>
+            </p>
+            {% endfor %}
+        </div>
+    </div>
+    </div><br>
+</div>
+</body>
+</html>

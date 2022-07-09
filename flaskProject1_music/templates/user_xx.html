@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap-fileinput/4.4.6/css/fileinput.min.css"/>
+<script src="https://cdn.bootcss.com/bootstrap-fileinput/4.4.6/js/fileinput.min.js"></script>
+    <link rel="stylesheet" href="../static/music_css/user_xx.css">
+</head>
+<body>
+<form action="user_xx_update.html" method="post">
+<table border="2" cellpadding="10" width="400">
+    <tr>
+        <td><span >头像：</span> </td>
+        <td><img src="../static/{{ session.get('icon') }}" alt="" width="100px" height="100px"></td>
+    </tr>
+    <tr>
+        <td><span>昵称：</span></td>
+        <td><input  name="username1" class="i2" type="text" value="{{session.get('username')}}"></td>
+    </tr>
+    <tr>
+        <td><span>手机号：</span></td>
+        <td>{{session.get('phone')}}</td>
+
+
+    </tr>
+     <tr>
+        <td><span>密码：</span></td>
+        <td><input name="passwd" class="i2" type="password" value="{{session.get('passwd')}}"></td>
+
+    </tr>
+    <tr>
+        <td><span>地区：</span></td>
+        <td><span><input name="addr"  class="i2" type="text" value="{{session.get('addr')}}"></span></td>
+    </tr>
+    <tr>
+        <td><span>个性签名：</span></td>
+        <td><textarea name="sign" cols="100"  rows="5">{{session.get('sign')}}</textarea></td>
+    </tr>
+    <tr>
+        <td colspan="2"><a href=""><input class="i1"  type="submit" value="更改设置"></a></td></tr>
+</table>
+    <script>
+        alert("更新成功！");
+    </script>
+</form>
+</body>
+</html>

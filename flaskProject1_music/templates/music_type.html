@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音乐网站</title>
+   <link rel="stylesheet"  href="{{ url_for('static',filename='music_css/music_shouye.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='music_css/music_jianjie.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='music_css/music_sort.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='music_css/examples.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='music_css/font-awesome.min.css') }}">
+	<script src="{{url_for('static',filename='jQuery-pf-cj/js/vendor/html5shiv.js')}}"></script>
+    <link href="{{url_for('static',filename='img/music.ico')}}" rel="shortcut icon">
+</head>
+<body>
+     <div class="d3">
+        <a href="/music_homepage.html" class="aa">返回首页</a>
+        {% if session.get('username') != None%}
+        <div class="header-top-area">
+            <a href="loginout/" style="color:white" class="a1">
+                <span style="padding-left:7px">退出登录</span>
+            </a>
+            <span style="padding-left:7px" class="a6">
+                <a href="/music_user.html" class="a7" title="显示个人信息">
+                    <i class="fa fa-user-circle-o" aria-hidden="true" title="显示个人信息"></i>{{session.get('username')}}
+                </a>
+            </span>
+        </div>
+        {% else %}
+            <div class="header-top-area">
+                <a href="{{url_for('enroll')}}" style="color:white" class="a1">
+                <i  aria-hidden="true"></i>
+                    <span style="padding-left:7px">注册</span>
+                </a>
+                <a href="{{url_for('login')}}" style="color:white" class="a1">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    <span style="padding-left:7px">登录</span>
+                </a>
+            </div>
+        {% endif %}
+     </div>
+    <div id="db-nov-music">
+        <div class="d1">
+            <a href="/music_homepage.html" id="a2">
+                <img src="{{url_for('static',filename='img/音乐论坛.png')}}">
+            </a>
+        </div>
+    </div>
+    <div class="wrapper">
+        <h1>选音乐</h1>
+        <div class="d22">
+            <div class="d23">
+                <a href="/music_type.html/all/1" class="music_type">全部类型</a>
+                <a href="/music_type.html/Pop/1">Pop</a>
+                <a href="/music_type.html/Soundtrack/1">Soundtrack</a>
+                <a href="/music_type.html/Rock/1">Rock</a>
+                <a href="/music_type.html/Electronica/1">Electronica</a>
+            </div>
+            <div class="d23">
+                <a href="/music_type.html/all/2" class="music_type">全部歌手</a>
+                <a href="/music_type.html/张学友/2">张学友</a>
+                <a href="/music_type.html/蔡健雅/2">蔡健雅</a>
+                <a href="/music_type.html/张韶涵/2">张韶涵</a>
+                <a href="/music_type.html/许嵩/2">许嵩</a>
+                <a href="/music_type.html/李荣浩/2">李荣浩</a>
+                <a href="/music_type.html/五月天/2">五月天</a>
+                <a href="/music_type.html/程响/2">程响</a>
+                <a href="/music_type.html/周深/2">周深</a>
+                <a href="/music_type.html/任然/2">任然</a>
+            </div>
+            <div class="d23">
+                <a href="/music_type.html/all/3" class="music_type">全部语言</a>
+                <a href="/music_type.html/粤语/3">粤语</a>
+                <a href="/music_type.html/国语/3">国语</a>
+                <a href="/music_type.html/英语/3">英语</a>
+                <a href="/music_type.html/日语/3">日语</a>
+            </div>
+            <div class="d23">
+                <a href="/music_type.html/all/4" class="music_type">全部年代</a>
+                <a href="/music_type.html/2022/4">2022</a>
+                <a href="/music_type.html/2021/4">2021</a>
+                <a href="/music_type.html/2020/4">2020</a>
+                <a href="/music_type.html/10年代/4">10年代</a>
+                <a href="/music_type.html/00年代/4">00年代</a>
+                <a href="/music_type.html/90年代/4">90年代</a>
+                <a href="/music_type.html/更早/4">更早</a>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="d6">
+            {% for music in musics %}
+            <div class="d4">
+                <a href="/music_introduction.html/{{ music.mid|e }}/" target="_blank">
+                <img src="{{url_for('static',filename=music.poster|e)}}" width="180px" height="180px">
+                </a><br>
+                <a href="/music_introduction.html/{{ music.mid|e }}" target="_blank" class="a4">{{ music.mname|e }}</a>
+                <a href="/music_introduction.html/{{ music.mid|e }}/" target="_blank" class="a4"></a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+<!--版权信息-->
+    <div class="footer">
+        <div class="footer-box">
+            <div class="footer-contain">
+                <p>
+                    <span><a href="#">关于我们：</a></span>
+                    <span><a href="#">@安彤 |</a></span>
+                    <span><a href="#">@蒋幸 |</a></span>
+                    <span><a href="#">@曾辉 |</a></span>
+                    <span><a href="#">@李万洲 |</a></span>
+                    <span><a href="#">@曹川 </a></span>
+                </p>
+                <p>
+                    <a href="#">湖北省武汉市洪山区武科大黄家湖校区理学院，联系方式：13888888888</a>
+                </p>
+            </div>
+            <div class="bottom-contain">
+                <p>
+                    Copyright © 2022 武科大理学院信息与计算科学专业 版权所有
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

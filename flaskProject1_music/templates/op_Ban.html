@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员系统</title>
+    <link href="../static/img/music.ico" rel="shortcut icon">
+    <style>
+        .op1{
+            height: 2000px;
+            width:200px;
+            background: #CB4042;
+            font-size: large;
+            float:left;
+            border-bottom-width: 2px;
+            border-color: black;
+            border-style: solid;
+        }
+        .op2{
+            font-size: xxx-large;
+        }
+        .op3{
+            height:64px;
+            text-align: center;
+            font-size: 48px;
+            background-color: #CB4042;
+            font-family: 方正姚体;
+            border-bottom-width: 2px;
+            border-color: black;
+            border-style: solid;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .d_in{
+            padding-bottom: 20px;
+            padding-top: 20px;
+            font-size: 24px;
+            font-family: 隶书;
+        }
+        .op4{
+            border-style: solid;
+            border-color: #CB4042;
+            padding-left: 240px;
+            padding-top: 20px;
+            height: 640px;
+        }
+    </style>
+</head>
+<header>
+    <div class="op3"><a href="/op_Homepage.html">管理员主页</a></div>
+</header>
+<body onload="auto_fill()" class="b1">
+<div>
+    <div class="op1">
+        <div class="d_in"><a href="/op_info.html">个人简介</a></div>
+        <div class="d_in"><a href="/op_Ban.html">用户禁言</a></div>
+        <div class="d_in"><a href="/op_Examine.html">查看音乐信息</a></div>
+        <div class="d_in"><a href="/op_Edit.html">编辑音乐</a></div>
+        <div class="d_in"><a href="/op_Delete.html">删除音乐</a></div>
+        <div class="d_in"><a href="/op_AddMusic.html">添加音乐</a></div>
+    </div>
+    <div class="op2">
+        <div class="op4">
+            {% for user in users %}
+                <tr style="border-style: solid">
+                <div>
+                    <td style="border-style: solid">用户ID：{{ user.uid|e }}</td>
+                    <td style="border-style: solid">是否禁言：{{ user.state|e }}</td>
+                    <td style="border-style: solid"><a href="op_Ban.html/{{ user.uid|e }}">一键禁言/解禁</a></td>
+                </div>
+                </tr>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

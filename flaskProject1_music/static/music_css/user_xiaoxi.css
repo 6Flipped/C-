@@ -1,0 +1,20 @@
+td{
+	border:1px solid red;
+	background-color:white;
+	padding:10px;
+	text-align:center;
+
+}
+th{
+	font-family: 华光中圆_CNKI;
+   	color: #58b2ff;
+    text-align: center;
+    font-size: 20px;
+}
+table{
+	width:80%;
+	border:1px solid red;
+ 	border-collapse:collapse;
+	margin:auto;
+	margin-top:50px;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"  href="{{ url_for('static',filename='music_css/style.css') }}">
+    <script src="{{url_for('static',filename='jQuery-pf-cj/js/vendor/html5shiv.js')}}"></script>
+    <link href="{{url_for('static',filename='img/music.ico')}}" rel="shortcut icon">
+    <link href= "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"rel="stylesheet">
+    <title>注册</title>
+</head>
+<body>
+<div class="loginBox">
+    <img id="user" src="../static/img/user.png">
+    <h3>Registration in here</h3>
+    <form action="" method="post">
+        <div class="inputBox">
+            <input type="text" name="id" placeholder="Phone">
+            <span id="span1"><i class="fa fa-user" aria-hidden="true"></i></span>
+        </div>
+        <div class="inputBox">
+            <input type="text" name="username" placeholder="Name">
+            <span id="span1"><i class="fa fa-adjust" aria-hidden="true"></i></span>
+        </div>
+
+        <div class="inputBox">
+            <input type="password" name="passwd1" placeholder="Password">
+            <span id="span1"><i class="fa fa-lock" aria-hidden="true"></i></span>
+        </div>
+        <div class="inputBox">
+            <input type="password" name="passwd2" placeholder="Password">
+            <span id="span1"><i class="fa fa-lock" aria-hidden="true"></i></span>
+        </div>
+            <input type="submit" name="" value="注册" onclick="checkIsNotNull()">
+            <a class="a1" href="/login.html">>>登录<<</a>
+    </form>
+    <script type="text/javascript">
+        function checkIsNotNull() {
+            var id = document.getElementsByName("id")[0].value;
+            var username = document.getElementsByName("username")[0].value;
+            var passwd1 = document.getElementsByName("passwd1")[0].value;
+            var passwd2 = document.getElementsByName("passwd2")[0].value;
+            if (id == "" || username == "" || passwd1 == "" || passwd2 == "") {
+                alert("请填写完整信息");
+                return false;
+            }
+            if (passwd1 != passwd2) {
+                alert("两次密码不一致");
+                return false;
+            }
+            //
+            // alert("注册成功");
+
+            return true;
+        }
+       {# function checkPassword(){
+            var passwd1=document.getElementById("passwd1").value;
+            var passwd2=document.getElementById("passwd2").value;
+            if (passwd1 !== passwd2) window.alert("密码不一致,请确认后重新输入！");
+            var inf=[document.getElementById("id_").value,document.getElementById("username_").value];
+            var obj=JSON.stringify(inf);
+            localStorage.setItem("inf_JSON",obj);
+        }#}
+        /*function auto_fill(){
+            var inf_JSON=localStorage.getItem("infJSON");
+            var inf=JSON.parse(inf_JSON);
+            document.getElementById("id_").value=inf[0];
+            document.getElementById("username_").value=inf[1];
+        }*/
+       {# function checkIsNotNull(){
+            var ID = document.getElementById("id_").value;
+            var USERNAME = document.getElementById("username_").value;
+            var PASSWD1 = document.getElementById("passwd1").value;
+            var PASSWD2= document.getElementById("passwd2").value;
+            var inf=[document.getElementById("id_").value,document.getElementById("username_").value];
+            var obj=JSON.stringify(inf);
+            localStorage.setItem("infJSON",obj);
+            if (ID === "") {
+                window.alert("手机号不能为空！");
+                return;
+            }
+            if (USERNAME === "") {
+                window.alert("用户名不能为空！");
+                return;
+            }
+            if (PASSWD1 === "") {
+                window.alert("密码不能为空！");
+                return;
+            }
+            if (PASSWD2 === ""){
+                window.alert("确认密码不能为空！");
+                return;
+            }
+            if (PASSWD1 !== PASSWD2)
+                window.alert("两次密码输入不一致！");
+        }#}
+    </script>
+</div>
+</body>
+</html>

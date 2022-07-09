@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="../static/music_css/user_sc.css">
+    <title>我的收藏</title>
+</head>
+<body>
+<form action="user_sc_update.html" method="post">
+    <table>
+
+        <tr>
+            <th>收藏音乐</th>
+            <th>收藏时间</th>
+        </tr>
+
+        {% for item in data %}
+        <tr>
+            <td>{{item.mname}}</td>
+            <td>{{item.ctime}}</td>
+            <td><input  type="submit" value="删除"></td>
+        <input type="hidden" name="mid" value="{{ item.mid }}">
+
+        </tr>
+        {% endfor %}
+
+
+    </table>
+</form>
+</body>
+</html>

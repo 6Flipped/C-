@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员系统</title>
+    <link href="../static/img/music.ico" rel="shortcut icon">
+    <style>
+        .op1{
+            height: 2000px;
+            width:200px;
+            background: #CB4042;
+            font-size: large;
+            float:left;
+            border-bottom-width: 2px;
+            border-color: black;
+            border-style: solid;
+        }
+        .op2{
+            font-size: xxx-large;
+        }
+        .op3{
+            height:64px;
+            text-align: center;
+            font-size: 48px;
+            background-color: #CB4042;
+            font-family: 方正姚体;
+            border-bottom-width: 2px;
+            border-color: black;
+            border-style: solid;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .d_in{
+            padding-bottom: 20px;
+            padding-top: 20px;
+            font-size: 24px;
+            font-family: 隶书;
+        }
+        .in{
+            width: 240px;
+            height: 24px;
+        }
+    </style>
+</head>
+<header>
+    <div class="op3"<a href="/op_Homepage.html">管理员主页</a></div>
+</header>
+<body onload="auto_fill()" class="b1">
+<div>
+    <div class="op1">
+        <!--
+        <div class="d_in"><a href="op_info.html">个人简介</a></div>
+        <div class="d_in"><a href="op_Ban.html">用户禁言</a></div>
+        <div class="d_in"><a href="op_Examine.html">查看音乐信息</a></div>
+        <div class="d_in"><a href="op_Edit.html">编辑音乐</a></div>
+        <div class="d_in"><a href="op_Delete.html">删除音乐</a></div>
+        <div class="d_in"><a href="op_AddMusic.html">添加音乐</a></div>
+        -->
+    </div>
+    <div class="op2">
+        <p>管理员登陆</p>
+        <form method="post" style="width: 480px;height: 960px">
+            <input class="in" id="opid" name=opid type="text" placeholder="请输入管理员id"><br/>
+            <input class="in" id="op_password" name=op_password type="password" placeholder="请输入管理员密码"><br/>
+            <input class="in" id="box" type="submit" value="立即登陆" onclick="checkIsNotNull()">
+        </form>
+        <script>
+            function auto_fill(){
+                    var inf_JSON=localStorage.getItem("infJSON");
+                    var inf=JSON.parse(inf_JSON);
+                    document.getElementById("mname").value=inf;
+                }
+            function checkIsNotNull(){
+                    var opid = document.getElementById("mname").value;
+                    var op_password1 = document.getElementById("op_password1").value;
+                    var obj=JSON.stringify(mname);
+                    localStorage.setItem("infJSON",obj);
+                    if (opid === "") {
+                        window.alert("管理员id不能为空！");
+                        return;
+                    }
+                    if (op_password1 === "") {
+                        window.alert("密码不能为空！");
+                        return;
+                    }
+                }
+        </script>
+    </div>
+</div>
+</body>
+</html>
