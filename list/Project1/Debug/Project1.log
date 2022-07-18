@@ -1,0 +1,5 @@
+﻿  list.cpp
+E:\C++\list\Project1\list.h(47): warning C4172: 返回局部变量或临时变量的地址: tmp
+E:\C++\list\Project1\list.h(47): warning C4172: 返回局部变量或临时变量的地址: tmp
+E:\C++\list\Project1\list.h(47): warning C4172: 返回局部变量或临时变量的地址: tmp
+  Project1.vcxproj -> E:\C++\list\Project1\Debug\Project1.exe
