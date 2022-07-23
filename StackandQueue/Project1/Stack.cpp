@@ -2,7 +2,11 @@
 #include<stack>
 #include<queue>
 #include<functional>
+#include<algorithm>
 using namespace std;
+
+#include"stack.h"
+#include"Queue.h"
 
 namespace std
 {
@@ -59,9 +63,11 @@ namespace std
 
 int main()
 {
-	std::test_stack();
-	std::test_queue();
-	std::test_priority_queue();
-
+	//std::test_stack();
+	//std::test_queue();
+	//std::test_priority_queue();
+	lwz::test_stack();
+	lwz::test_queue();
+	lwz::test_priority_queue();
 	return 0;
 } 
