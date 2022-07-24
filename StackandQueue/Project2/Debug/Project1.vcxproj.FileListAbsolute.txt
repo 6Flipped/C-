@@ -1,0 +1,3 @@
+E:\C++\Stack and Queue\Project1\Debug\Project1.exe
+E:\C++\StackandQueue\Project1\Debug\Project1.exe
+E:\C++\StackandQueue\Project2\Debug\Project1.exe
