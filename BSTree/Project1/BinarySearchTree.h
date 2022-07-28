@@ -8,7 +8,7 @@ struct BSTreeNode
 	BSTreeNode<K>* _right;
 
 	K _key;
-
+	
 	BSTreeNode(const K& key)
 		:_left(nullptr)
 		, _right(nullptr)
@@ -28,42 +28,34 @@ public:
 			_root = new Node(key);
 			return true;
 		}
-
 		Node* parent = nullptr;
 		Node* cur = _root;
 		while (cur)
 		{
-			if (cur->_key < key)
-			{
-				parent = cur;
-				cur = cur->_right;
-			}
-			else if (cur->_key > key)
+			if (cur->_key > key)
 			{
 				parent = cur;
 				cur = cur->_left;
 			}
-			else
+			else if (cur->_key < key)
 			{
-				return false;
+				parent = cur;
+				cur = cur->_right;
 			}
+			else
+				return false;
 		}
-
 		cur = new Node(key);
 		if (parent->_key < key)
 		{
 			parent->_right = cur;
 		}
 		else
-		{
 			parent->_left = cur;
-		}
-
-		return true;
 	}
 
-	//const Node* Find(const K& key)
-	bool Find(const K& key)
+
+	bool Find(const K& x)
 	{
 		Node* cur = _root;
 		while (cur)
@@ -77,11 +69,8 @@ public:
 				cur = cur->_left;
 			}
 			else
-			{
 				return true;
-			}
 		}
-
 		return false;
 	}
 
@@ -93,45 +82,25 @@ public:
 		{
 			if (cur->_key < key)
 			{
-				parent = cur;
 				cur = cur->_right;
 			}
 			else if (cur->_key > key)
 			{
-				parent = cur;
 				cur = cur->_left;
 			}
 			else
 			{
-				//一个孩子---左为空or右为空
-				//两个孩子---替换法
-				if (cur->_left == nullptr)
+				//一个孩子--左为空 or 右为空
+				//两个孩子--
+				if ()
 				{
-					if (cur == parent->_left)
-					{
-						parent->_left = cur->_right;
-					}
-					else
-					{
-						parent->_right = cur->_right;
-					}
-				}
-				else if (cur->_right == nullptr)
-				{
-					if (cur == parent->_left)
-					{
-						parent->_left = cur->_left;
-					}
-					else
-					{
-						parent->_left = cur->_left;
-					}
 
 				}
 			}
 		}
-		return false;
 	}
+
+
 
 	void InOrder()
 	{
@@ -143,39 +112,21 @@ private:
 	{
 		if (root == nullptr)
 			return;
-
 		_InOrder(root->_left);
 		cout << root->_key << " ";
 		_InOrder(root->_right);
 	}
-private:
+
 	Node* _root = nullptr;
 };
 
-void TestBSTree()
+void BSTreeTest1()
 {
-	BSTree<int> t;
-	int a[] = { 8, 3, 1, 10, 6, 4, 7, 14, 13 };
+	BSTree<int> bt;
+	int a[] = { 8,3,1,10,6,4,7,14,13 };
 	for (auto e : a)
 	{
-		t.Insert(e);
+		bt.Insert(e);
 	}
-	t.InOrder();
-
-	t.Insert(16);
-	t.Insert(9);
-
-	t.InOrder();
-}
-
-
-void TestBSTree2()
-{
-	BSTree<int> t;
-	int a[] = { 8,7,9,12,5,19,20,30 };
-	for (auto e : a)
-	{
-		t.Insert(e);
-	}
-	t.InOrder();
+	bt.InOrder();
 }

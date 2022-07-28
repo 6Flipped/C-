@@ -4,6 +4,6 @@ using namespace std;
 
 int main()
 {
-	TestBSTree2();
+	BSTreeTest1();
 	return 0;
 }

@@ -1,2 +1,3 @@
 ﻿  Test.cpp
+E:\C++\BSTree\Project1\BinarySearchTree.h(55): warning C4715: “BSTree<int>::Insert”: 不是所有的控件路径都返回值
   Project1.vcxproj -> E:\C++\BSTree\Project1\Debug\Project1.exe
