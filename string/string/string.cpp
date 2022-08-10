@@ -2,7 +2,7 @@
 #include<string>
 
 using namespace std;
-
+#include"string.h"
 
 //template<class T>
 //class basic_string
